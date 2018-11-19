@@ -7,7 +7,7 @@ class App extends Component {
       <div>
         <h4>App</h4>
         <hr />
-        <Link to='/home'>Home</Link> | <Link to='/product'>Products</Link> | <Link to='/about'>About</Link>
+        <Link to='/'>Home</Link> | <Link to='/product'>Products</Link> | <Link to='/about'>About</Link> | <Link to='/login'>Login</Link>
         <div style={{
             padding: '5px',
             margin: '10px 0',

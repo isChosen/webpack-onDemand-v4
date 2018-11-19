@@ -1,57 +1,30 @@
-import React, { PureComponent } from 'react';
+/*
+ * @Author: Detcx 
+ * @Date: 2018-11-19 15:05:58 
+ * @Last Modified by: Detcx
+ * @Last Modified time: 2018-11-19 15:14:59
+ * @Description: original configuration
+ */
+import React from 'react';
 import ReactDom from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
-import App from './App';
-import Login from './Login';
-import Home from './Home';
-import Product from './Product';
-import About from './About';
+import App from './components/App';
+import Home from './components/Home';
+import Product from './components/Product';
+import About from './components/About';
+import Login from './components/Login';
 
-
-const getAsyncComponent = (load) => (
-  class AsyncComponent extends PureComponent {
-    componentDidMount() {
-      load().then(({default: component}) => {
-        this.setState({
-          component
-        })
-      })
-    }
-    render() {
-      const {component} = this.state || {};
-      return component ? React.createElement(component): null;
-    }
-  }
-)
 
 ReactDom.render(
-  <Router >
+  <BrowserRouter>
     <App>
-      <Route exact path="/" component={Login} />
-      <Route path="/home" component={Home} />
+      <Route path="/" exact component={Home} />
       <Route path="/product" component={Product} />
       <Route path="/about" component={About} />
+      <Route path="/login" component={Login} />
     </App>
-  </Router>,
+  </BrowserRouter>,
   document.getElementById('root')
 )
 
-/* 
-// 懒加载
-ReactDom.render(
-  <Router >
-    <App>
-      <Route exact path="/" component={getAsyncComponent(() => import( './Home'))} />
-      <Route path="/home" component={getAsyncComponent(() => import( './Home'))} />
-      <Route path="/product" component={getAsyncComponent(() => import( './Product'))} />
-      <Route path="/about" component={getAsyncComponent(() => import( './About'))} />
-    </App>
-  </Router>,
-  document.getElementById('root')
-)
- */
-/* webpackChunkName: 'chunk-home', webpackMode: 'lazy-once' */
-/* webpackChunkName: 'chunk-home' */
-/* webpackChunkName: 'chunk-product' */
-/* webpackChunkName: 'chunk-about' */
