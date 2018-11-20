@@ -2,7 +2,7 @@
  * @Author: Detcx 
  * @Date: 2018-09-30 09:44:59 
  * @Last Modified by: Detcx
- * @Last Modified time: 2018-11-19 15:51:36
+ * @Last Modified time: 2018-11-20 17:39:53
  * @description development
  */
 
@@ -17,7 +17,7 @@ module.exports = {
   entry: './src/main.jsx', // index.jsx main.jsx entry.jsx
   output: {
     filename: 'js/[name]bundle.js',
-    chunkFilename: 'js/[name][chunkhash:6].js', // 'js/[id].bundle[chunkhash:6].js'
+    chunkFilename: 'js/[name].bundle[chunkhash:6].js', // 'js/[id].bundle[chunkhash:6].js'
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/'
     
